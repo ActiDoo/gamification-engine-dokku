@@ -1,0 +1,62 @@
+daemon off;
+worker_processes <%= ENV['NGINX_WORKERS'] || 4 %>;
+
+events {
+	use epoll;
+	accept_mutex on;
+	worker_connections 1024;
+}
+
+http {
+    gzip on;
+    gzip_comp_level 2;
+    gzip_min_length 512;
+
+	server_tokens off;
+
+	access_log off; #logs/nginx/access.log;
+	error_log logs/nginx/error.log;
+
+	include mime.types;
+	default_type application/octet-stream;
+	sendfile on;
+
+	#Must read the body in 5 seconds.
+	client_body_timeout 5;
+
+	upstream app_server {
+		server unix:/tmp/nginx.socket; 
+ 	}
+
+	server {
+		listen <%= ENV["PORT"] %>;
+		server_name _;
+		keepalive_timeout 5;
+
+		location / {
+			expires       -1;
+            add_header    Cache-Control no-cache;
+            add_header    Vary User-Agent;
+            include       uwsgi_params;
+
+            if ($request_method = POST) {    
+            	uwsgi_pass  app_server;
+            }
+
+            default_type  "application/json";
+            charset utf-8;
+            set $memcached_key "::URL_CACHE::$request_uri";
+            memcached_pass <%= ENV["MEMCACHED_URL"] %>; 
+            error_page 404 502 = @fallback;
+		}
+		
+		location @fallback { 
+              expires       -1;
+              add_header    Cache-Control no-cache;
+              add_header    Vary User-Agent;
+              include     uwsgi_params;
+              uwsgi_pass  app_server;
+              internal;
+        }
+	}
+}
