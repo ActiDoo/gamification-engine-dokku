@@ -45,13 +45,13 @@ http {
 
             		default_type  "application/json";
             		charset utf-8;
-            		if (<%= ENV["MEMCACHED_URL"]=="" %>) {
+            		<% if ENV["MEMCACHED_URL"] == nil || ENV["MEMCACHED_URL"] == "" %>
             			uwsgi_pass  app_server;
-            		} else {
+            		<% else %>
             			set $memcached_key "::URL_CACHE::$request_uri";
             			memcached_pass <%= ENV["MEMCACHED_URL"] %>; 
             			error_page 404 502 = @fallback;
-            		}
+            		<% end %>
 		}
 		
 		location @fallback { 
