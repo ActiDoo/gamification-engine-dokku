@@ -34,7 +34,7 @@ http {
 		keepalive_timeout 5;
 
 		location = / {
-			return 301 /admin;
+			rewrite ^/(.*)$ /admin/$1 last;
 		}
 		
 		location / {
