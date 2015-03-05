@@ -33,6 +33,10 @@ http {
 		server_name _;
 		keepalive_timeout 5;
 
+		location = / {
+			return 301 /admin;
+		}
+		
 		location / {
 			expires       -1;
             		add_header    Cache-Control no-cache;
