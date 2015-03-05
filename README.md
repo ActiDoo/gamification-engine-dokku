@@ -7,9 +7,9 @@ A running version is available at https://gamification-engine.herokuapp.com/ [![
 
 ## Configuration
 An installed PostgreSQL database and the following environment settings ared needed:
-* BUILDPACK_URL = https://github.com/ddollar/heroku-buildpack-multi.git
-* DATABASE_URL
-* URLCACHE_ACTIVE = False or MEMCACHED_URL
+* `BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git`
+* `DATABASE_URL`
+* `URLCACHE_ACTIVE=False` or `MEMCACHED_URL`
 
 To initiate the database and populate with demo data run `initialize_gengine_db production.ini reset_db=True populate_demo=True`
 
