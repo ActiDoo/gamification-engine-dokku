@@ -35,28 +35,32 @@ http {
 
 		location / {
 			expires       -1;
-            add_header    Cache-Control no-cache;
-            add_header    Vary User-Agent;
-            include       uwsgi_params;
+            		add_header    Cache-Control no-cache;
+            		add_header    Vary User-Agent;
+            		include       uwsgi_params;
 
-            if ($request_method = POST) {    
-            	uwsgi_pass  app_server;
-            }
+            		if ($request_method = POST) {    
+            			uwsgi_pass  app_server;
+            		}
 
-            default_type  "application/json";
-            charset utf-8;
-            set $memcached_key "::URL_CACHE::$request_uri";
-            memcached_pass <%= ENV["MEMCACHED_URL"] %>; 
-            error_page 404 502 = @fallback;
+            		default_type  "application/json";
+            		charset utf-8;
+            		if (ENV["MEMCACHED_URL"] = "") {
+            			uwsgi_pass  app_server;
+            		} else {
+            			set $memcached_key "::URL_CACHE::$request_uri";
+            			memcached_pass <%= ENV["MEMCACHED_URL"] %>; 
+            			error_page 404 502 = @fallback;
+            		}
 		}
 		
 		location @fallback { 
-              expires       -1;
-              add_header    Cache-Control no-cache;
-              add_header    Vary User-Agent;
-              include     uwsgi_params;
-              uwsgi_pass  app_server;
-              internal;
-        }
+              		expires       -1;
+        		add_header    Cache-Control no-cache;
+              		add_header    Vary User-Agent;
+              		include     uwsgi_params;
+              		uwsgi_pass  app_server;
+              		internal;
+        	}
 	}
 }
