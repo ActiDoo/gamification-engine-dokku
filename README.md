@@ -1,5 +1,5 @@
-# gamification-engine-buildpack
-Buildpack for using the gamification engine (https://github.com/ActiDoo/gamification-engine) with dokku (https://github.com/progrium/dokku) or Heroku (https://www.heroku.com/)
+# gamification-engine-dokku
+Deployable application for using the gamification engine (https://github.com/ActiDoo/gamification-engine) with dokku (https://github.com/progrium/dokku) or Heroku (https://www.heroku.com/)
 
 Makes use of multiple buildpacks (see .buildpacks and https://github.com/ddollar/heroku-buildpack-multi.git)
 
