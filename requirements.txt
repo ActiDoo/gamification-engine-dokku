@@ -1,1 +1,2 @@
+uWSGI
 gamification-engine==0.1.31
