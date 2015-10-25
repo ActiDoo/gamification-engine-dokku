@@ -11,5 +11,5 @@ An installed PostgreSQL database and the following environment settings ared nee
 * `DATABASE_URL`
 * `URLCACHE_ACTIVE=False` or `MEMCACHED_URL`
 
-To initiate the database and populate with demo data run `initialize_gengine_db production.ini reset_db=True populate_demo=True`
+To initiate the database and populate with demo data run `initialize_gengine_db production.ini alembic.ini reset_db=True populate_demo=True`
 
