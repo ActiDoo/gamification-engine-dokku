@@ -1,2 +1,2 @@
 uWSGI==2.0.12
-gamification-engine==0.1.35
+gamification-engine==0.1.36
