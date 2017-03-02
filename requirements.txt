@@ -1,2 +1,2 @@
 uWSGI==2.0.11.2
--e git+https://github.com/ActiDoo/gamification-engine.git#egg=gamification-engine
+-e git+https://github.com/ActiDoo/gamification-engine.git@develop#egg=gamification-engine
