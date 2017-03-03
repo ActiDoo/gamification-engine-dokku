@@ -1,2 +1,3 @@
 uWSGI==2.0.11.2
+-e git+https://github.com/ActiDoo/PyAPNs.git.git@master#egg=apns
 -e git+https://github.com/ActiDoo/gamification-engine.git@develop#egg=gamification-engine
