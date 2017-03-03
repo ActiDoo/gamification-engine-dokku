@@ -1,4 +1,3 @@
 #!/bin/bash
-python setup.py develop
-alembic upgrade head
+alembic -c production.ini upgrade head
 bin/start-nginx uwsgi uwsgi-production.ini
