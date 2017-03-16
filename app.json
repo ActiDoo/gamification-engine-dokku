@@ -17,6 +17,8 @@
   },
   "addons": [
     {
+      "plan": "papertrail:choklad"
+    {
       "plan": "heroku-postgresql:hobby-dev",
       "options": {
       }
