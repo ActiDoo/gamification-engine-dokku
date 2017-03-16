@@ -5,8 +5,9 @@ The configuration uses multiple buildpacks (see .buildpacks and https://github.c
 
 ## Demo
 
-* A running stable version is available at https://gamification-engine.herokuapp.com/ [![Heroku](https://heroku-badge.herokuapp.com/?app=gamification-engine&root=admin/)](https://gamification-engine.herokuapp.com)
-* A running development version at https://gamification-engine-develop.herokuapp.com/ [![Heroku](https://heroku-badge.herokuapp.com/?app=gamification-engine-develop&root=admin/)](https://gamification-engine-develop.herokuapp.com)
+* [![Heroku](https://heroku-badge.herokuapp.com/?app=gamification-engine&root=admin/)](https://gamification-engine.herokuapp.com) A running stable version is available at https://gamification-engine.herokuapp.com/
+* [![Heroku](https://heroku-badge.herokuapp.com/?app=gamification-engine-develop&root=admin/)](https://gamification-engine-develop.herokuapp.com) A running development version at https://gamification-engine-develop.herokuapp.com/
+* [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) Your con deploy your personal demo on Heroku with this button (free Heroku account required)
 
 ## Configuration
 An installed PostgreSQL database and the following environment settings are needed:
