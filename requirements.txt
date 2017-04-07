@@ -1,2 +1,2 @@
 uWSGI==2.0.12
---extra-index-url git+https://github.com/ActiDoo/gamification-engine.git@develop#egg=gamification-engine[auth,pushes,testing]
+-e git+https://github.com/ActiDoo/gamification-engine.git@develop#egg=gamification-engine[auth,pushes,testing]
