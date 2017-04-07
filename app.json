@@ -1,0 +1,33 @@
+{
+  "name": "gamification-engine",
+  "description": "gamification-engine (gengine) is a framework for developing gamification features for your application",
+  "keywords": ["gamification", "python", "postgresql"],
+  "website": "https://gamification-software.com/",
+  "repository": "https://github.com/ActiDoo/gamification-engine-dokku",
+  "logo": "https://www.gamification-software.com/img/300xNxlogo.png.pagespeed.ic.1XGSjEHnoq.webp",
+  "success_url": "/admin/",
+  "scripts": {
+    "postdeploy": "initialize_gengine_db production.ini reset_db=True populate_demo=True"
+  },
+  "env": {
+    "URLCACHE_ACTIVE": {
+      "description": "Deactivate URL cache.",
+      "value": "False"
+    }
+  },
+  "addons": [
+    {
+      "plan": "papertrail:choklad"
+    },
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+      "options": {
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-multi"
+    }
+  ]
+}
