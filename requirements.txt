@@ -1,2 +1,2 @@
-uWSGI==2.0.11.2
--e git+https://github.com/ActiDoo/gamification-engine.git@develop#egg=gamification-engine[auth,pushes,testing]
+uWSGI==2.0.12
+gamification-engine[auth,pushes,testing]==0.2.0
