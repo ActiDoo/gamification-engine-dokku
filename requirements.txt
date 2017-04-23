@@ -1,2 +1,2 @@
 uWSGI==2.0.12
-gamification-engine[auth,pushes,testing]==0.2.1
+gamification-engine[auth,pushes,testing]==0.2.2
